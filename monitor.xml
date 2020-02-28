@@ -1,0 +1,20 @@
+<monitor>
+    <name>RemoteMountTester</name>
+       <type>managed</type>
+        <description>Monitor performance of a mount point.</description>
+        <monitor-configuration>     </monitor-configuration>
+        <monitor-run-task>
+            <!--  Edit execution-style as needed. -->
+            <name>Run</name>
+            <type>executable</type>
+            <task-arguments></task-arguments>
+            <execution-style>periodic</execution-style> 
+            <execution-frequency-in-seconds>60</execution-frequency-in-seconds> 
+            <execution-timeout-in-secs>30</execution-timeout-in-secs>
+            <executable-task>
+                <type>file</type>
+                <!--  Use only one file element per os-type. -->
+                    <file os-type="aix">RemoteMountTester.sh</file>
+            </executable-task>
+        </monitor-run-task>
+</monitor>

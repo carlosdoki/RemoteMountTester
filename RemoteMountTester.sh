@@ -17,15 +17,15 @@ do
     let time_milis=minutes_milis+seconds_milis
     
     if [[ -e "$test_file" ]]; then #file exists so lets print the metric
-        echo "name=Custom Metrics|Mount point availability|$final_line|avg write time (ms),value=$seconds_milis,aggregator=AVG"
-        echo "name=Custom Metrics|Mount point availability|$final_line|succsessful file creation,value=1,aggregator=AVG"
+        echo "name=Custom Metrics|Mount point availability|$final_line|avg write time (ms),value=$seconds_milis,aggregator=AVERAGE"
+        echo "name=Custom Metrics|Mount point availability|$final_line|succsessful file creation,value=1,aggregator=AVERAGE"
         rm -rf "$test_file"
         if [[ -e "$test_file" ]]; then
-            echo "name=Custom Metrics|Mount point availability|$final_line|failed file deletion,value=1,aggregator=AVG"
+            echo "name=Custom Metrics|Mount point availability|$final_line|failed file deletion,value=1,aggregator=AVERAGE"
         else
-            echo "name=Custom Metrics|Mount point availability|$final_line|successful file deletion,value=1,aggregator=AVG"
+            echo "name=Custom Metrics|Mount point availability|$final_line|successful file deletion,value=1,aggregator=AVERAGE"
         fi
     else
-        echo "name=Custom Metrics|Mount point availability|$final_line|failed file creation,value=1,aggregator=AVG"
+        echo "name=Custom Metrics|Mount point availability|$final_line|failed file creation,value=1,aggregator=AVERAGE"
     fi
 done
